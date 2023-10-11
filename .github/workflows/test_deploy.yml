@@ -1,0 +1,41 @@
+# ワークフローの定義
+name: Test and Deploy
+
+# イベントの指定
+on:
+  pull_request:
+
+
+jobs:
+  test:
+    # job名の定義
+    name: Test
+    # 実行環境
+    runs-on: ubuntu-latest
+
+    steps:
+      # コードのチェックアウト
+      - uses: actions/checkout@v2
+      
+      # Rubyのバージョン指定
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6.8
+      
+      # M1 Mac用のnodeのインストール
+      - users: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      # Gemのインストール
+      - name: Run bundle install
+        run: |
+          bundle config --local path vendor/bundle
+          bundle config --local without production
+          bundle install
+
+      # test環境でのassetsのcompile
+      - run: RAILS_ENV=test bundle exec rails assets:precompile
+
+      # testの実行
+      - run: bundle exec rails test
