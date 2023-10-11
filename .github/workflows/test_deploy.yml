@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v2
         with: 
           path: node_modules
-          key: yarn-v1-${{ hashFiles(yarn.lock)}}
+          key: yarn-v1-${{ hashFiles('yarn.lock')}}
       
       # M1 Mac用のnodeのインストール
       - uses: actions/setup-node@v2
