@@ -5,7 +5,6 @@ name: Test and Deploy
 on:
   pull_request:
 
-
 jobs:
   test:
     # job名の定義
@@ -21,9 +20,23 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6.8
+
+      # Gemのキャッシュ
+      - name: Cache bundle
+        uses: actions/cache@v2
+        with: 
+          path: vendor/bundle
+          key: bundle-v1-${{ hashFiles('Gemfile.lock')}}
+
+      # node_modulesのキャッシュ
+      - name: Cache yarn
+        uses: actions/cache@v2
+        with: 
+          path: node_modules
+          key: yarn-v1-${{ hashFiles('yarn.lock')}}
       
       # M1 Mac用のnodeのインストール
-      - users: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: 16
 
