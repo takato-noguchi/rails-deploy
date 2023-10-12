@@ -20,7 +20,8 @@ gem 'bootsnap',   '1.10.3', require: false
 gem 'net-smtp', require: false
 gem 'net-imap', require: false
 gem 'net-pop', require: false
-
+gem 'dotenv-rails', '2.7.6'
+ 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
