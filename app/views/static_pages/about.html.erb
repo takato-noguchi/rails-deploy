@@ -1,10 +1,84 @@
-<% provide(:title, "About") %>
-<h1>About</h1>
-<p>
-  <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-  is a <a href="https://railstutorial.jp/#ebook">book</a> and
-  <a href="https://railstutorial.jp/#screencast">screencast</a>
-  to teach web development with
-  <a href="https://rubyonrails.org/">Ruby on Rails</a>.
-  This is the sample application for the tutorial.
-</p>
+
+<div class="side">
+  <p class="sort-title">事業ステージ一覧</p>
+  <p>プロダクトリリース前</p>
+  <p>β版リリース済み</p>
+  <p>プロダクトリリース済み</p>
+</div>
+
+<div class="container card-container">
+</div> 
+
+<style>
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 1100px;
+  margin: 30px 0;
+  margin-left: 280px;
+  padding-top: 20px;
+}
+.card-item {
+  width: calc(100% / 3 - 30px);
+  margin-bottom: 30px;
+  padding: 30px 10px 30px 10px; 
+  text-align: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.project-title {
+  font-weight: 600;
+}
+body {
+   font-family:'Noto Sans JP',sans-serif;
+}
+
+.side {
+  box-shadow:0px 0px 4px 2px #ccc;
+  width: 200px;
+  height: 400px;
+  text-align:center;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  position: absolute;
+  left: 4%;
+  top: 16%;
+} 
+
+.content {
+  background-color:#b3d874;
+  width:250px;
+  height:300px;
+  text-align:center;
+  margin-left:10px;
+}
+
+article {
+  display:flex;
+}
+.project-title {
+  font-weight: 600;
+}
+.tech-tag {
+  display: inline-block;
+  font-size: 12px;
+  margin: 0 .1em .4em 0;
+  padding: .4em;
+  line-height: 1;
+  text-decoration: none;
+  color: #0000ee;
+  background-color: #fff;
+  border: 1px solid #0000ee;
+  border-radius: 2em;
+}
+.sort-title {
+  font-weight: 600;
+  margin-top: 10px;
+}
+.project-card {
+  text-decoration: none;
+  color: #000000;
+}
+</style>
